@@ -57,21 +57,6 @@ class MainActivity : AppCompatActivity() ,NewsAdapter.NewsItemClicked{
            }
 
           override fun onQueryTextChange(newText: String?): Boolean {
-              /*temparr.clear()
-              val searchText = newText!!.toLowerCase(Locale.getDefault())
-              if (searchText.isNotEmpty()){
-                  news.forEach {
-                      if (it.title.toLowerCase(Locale.getDefault()).contains(searchText)){
-                          newsA.add(it)
-                      }
-                  }
-                  recyclerView.adapter!!.notifyDataSetChanged()
-              }
-              else{
-                  temparr.clear()
-                  temparr.addAll(newsA)
-                  recyclerView.adapter!!.notifyDataSetChanged()
-              }*/
               return true
            }
 
@@ -91,10 +76,8 @@ class MainActivity : AppCompatActivity() ,NewsAdapter.NewsItemClicked{
                     newsList.adapter=mAdapter
                     newsList.layoutManager = LinearLayoutManager(this@MainActivity)
                     newsArray.add(news)
-                    //temparr.add(news)
                 }
                 mAdapter.updateNews(newsArray)
-                //tadapter = NewsAdapter(this@MainActivity, this@MainActivity, newsA.articles)
             }
 
 
@@ -119,33 +102,6 @@ class MainActivity : AppCompatActivity() ,NewsAdapter.NewsItemClicked{
         intent.putExtra("newsimageurl", item.urlToImage)
         startActivity(intent)
     }
-
-   /* override fun search(item: Article) {
-        override fun onCreateOptionsMenu(menu: Menu): Boolean {
-            menuInflater.inflate(R.menu.menu, menu)
-
-            val search = menu?.findItem(R.id.search_bar)
-            val searchView = search?.actionView as? SearchView
-            searchView?.isSubmitButtonEnabled = true
-            searchView?.setOnQueryTextListener(this)
-        }
-    }
-
-    override fun onQueryTextSubmit(query: String?): Boolean {
-
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        val searchText = newText!!.toLowerCase(Locale.getDefault())
-        if(searchText.isNotEmpty()){
-            news.forEach{
-                if (it.title.toLowerCase(Locale.getDefault()).contains(searchText)){
-                    temparr.add(it)
-                }
-            }
-        }
-        return false
-    }*/
 
 }
 
